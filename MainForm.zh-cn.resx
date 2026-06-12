@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"><xsd:import namespace="http://www.w3.org/XML/1998/namespace" /><xsd:element name="root" msdata:IsDataSet="true"><xsd:complexType><xsd:choice maxOccurs="unbounded"><xsd:element name="data"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /></xsd:sequence><xsd:attribute name="name" type="xsd:string" use="required" /><xsd:attribute ref="xml:space" /></xsd:complexType></xsd:element><xsd:element name="resheader"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" /></xsd:sequence><xsd:attribute name="name" type="xsd:string" use="required" /></xsd:complexType></xsd:element></xsd:choice></xsd:complexType></xsd:element></xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>2.0</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="$this.Text" xml:space="preserve"><value>ChatDemo - VisionMaster + AI 助手</value></data>
+  <data name="groupBoxSolution.Text" xml:space="preserve"><value>方案操作</value></data>
+  <data name="buttonSelectSolu.Text" xml:space="preserve"><value>选择方案</value></data>
+  <data name="buttonLoadSolu.Text" xml:space="preserve"><value>加载方案</value></data>
+  <data name="buttonSaveSolu.Text" xml:space="preserve"><value>保存方案</value></data>
+  <data name="groupBoxProcedure.Text" xml:space="preserve"><value>流程操作</value></data>
+  <data name="label1.Text" xml:space="preserve"><value>选择流程</value></data>
+  <data name="buttonRunOnce.Text" xml:space="preserve"><value>运行一次</value></data>
+  <data name="buttonContiRun.Text" xml:space="preserve"><value>连续运行</value></data>
+  <data name="buttonResultStats.Text" xml:space="preserve"><value>结果统计</value></data>
+  <data name="buttonRender.Text" xml:space="preserve"><value>图像显示</value></data>
+  <data name="buttonConfig.Text" xml:space="preserve"><value>参数配置</value></data>
+  <data name="buttonChineseOREnglish.Text" xml:space="preserve"><value>中文/英文</value></data>
+  <data name="groupBoxResult.Text" xml:space="preserve"><value>结果</value></data>
+  <data name="groupBoxLog.Text" xml:space="preserve"><value>日志消息</value></data>
+  <data name="groupBoxChat.Text" xml:space="preserve"><value>AI 助手 (DeepSeek)</value></data>
+  <data name="ClearToolStripMenuItem.Text" xml:space="preserve"><value>清除</value></data>
+  <data name="timeStampHeader.Text" xml:space="preserve"><value>时间</value></data>
+  <data name="infoHeader.Text" xml:space="preserve"><value>消息</value></data>
+</root>

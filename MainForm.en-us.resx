@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"><xsd:import namespace="http://www.w3.org/XML/1998/namespace" /><xsd:element name="root" msdata:IsDataSet="true"><xsd:complexType><xsd:choice maxOccurs="unbounded"><xsd:element name="data"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /></xsd:sequence><xsd:attribute name="name" type="xsd:string" use="required" /><xsd:attribute ref="xml:space" /></xsd:complexType></xsd:element><xsd:element name="resheader"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" /></xsd:sequence><xsd:attribute name="name" type="xsd:string" use="required" /></xsd:complexType></xsd:element></xsd:choice></xsd:complexType></xsd:element></xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>2.0</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="$this.Text" xml:space="preserve"><value>ChatDemo - VisionMaster + AI Assistant</value></data>
+  <data name="groupBoxSolution.Text" xml:space="preserve"><value>Solution</value></data>
+  <data name="buttonSelectSolu.Text" xml:space="preserve"><value>Select</value></data>
+  <data name="buttonLoadSolu.Text" xml:space="preserve"><value>Load</value></data>
+  <data name="buttonSaveSolu.Text" xml:space="preserve"><value>Save</value></data>
+  <data name="groupBoxProcedure.Text" xml:space="preserve"><value>Procedure</value></data>
+  <data name="label1.Text" xml:space="preserve"><value>Procedure</value></data>
+  <data name="buttonRunOnce.Text" xml:space="preserve"><value>Run Once</value></data>
+  <data name="buttonContiRun.Text" xml:space="preserve"><value>Run Continuous</value></data>
+  <data name="buttonResultStats.Text" xml:space="preserve"><value>Statistics</value></data>
+  <data name="buttonRender.Text" xml:space="preserve"><value>Render</value></data>
+  <data name="buttonConfig.Text" xml:space="preserve"><value>Config</value></data>
+  <data name="buttonChineseOREnglish.Text" xml:space="preserve"><value>中文/English</value></data>
+  <data name="groupBoxResult.Text" xml:space="preserve"><value>Result</value></data>
+  <data name="groupBoxLog.Text" xml:space="preserve"><value>Log</value></data>
+  <data name="groupBoxChat.Text" xml:space="preserve"><value>AI Assistant (DeepSeek)</value></data>
+  <data name="ClearToolStripMenuItem.Text" xml:space="preserve"><value>Clear</value></data>
+  <data name="timeStampHeader.Text" xml:space="preserve"><value>Time</value></data>
+  <data name="infoHeader.Text" xml:space="preserve"><value>Message</value></data>
+</root>
