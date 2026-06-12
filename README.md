@@ -1,9 +1,10 @@
-# ChatDemoCs - VisionMaster + DeepSeek AI Assistant Demo
+# VisionMaster RAG Agent
 
-`ChatDemoCs` 是一个基于 .NET Framework 4.8 的 Windows Forms 示例程序。它仿照
+`VisionMaster RAG Agent` 是一个基于 .NET Framework 4.8 的 Windows Forms 示例程序。它仿照
 `DeepLearningDemoCs` 的 VisionMaster 接入方式，保留方案加载、方案保存、流程选择、
 单次运行、连续运行、图像显示和参数配置能力，并在界面右下方嵌入 DeepSeek /
-OpenAI-compatible 聊天助手。
+OpenAI-compatible 聊天助手。项目内置本地 VisionMaster 手册 RAG 模块，可解析 CHM
+帮助手册并把相关片段注入大模型上下文，用于 SDK 查询、报错排查和参数配置建议。
 
 ## 1. 功能概览
 
@@ -13,6 +14,7 @@ OpenAI-compatible 聊天助手。
 - **日志与结果**：右侧保留运行结果和日志列表，日志按日期写入 `Log` 目录。
 - **结果统计**：连续运行结束后，可在 `结果统计` 弹窗中查看每类标签的样本数、占比直方图，并一键调用 DeepSeek 对分布情况做分析与改进建议。
 - **AI 助手**：聊天面板固定在右下角，用于在调试视觉方案时咨询代码、SDK、算法或错误信息。
+- **本地手册 RAG**：自动定位并反编译 VisionMaster CHM 手册，清洗 HTML/TXT，切分知识片段，基于轻量 TF-IDF 检索召回 TopK 手册上下文。
 - **聊天设置**：API Key、Base URL、模型、温度、最大 Tokens、超时时间和系统提示词通过模态设置窗口配置。
 - **国际化资源**：主界面提供 `zh-cn` / `en-us` 资源文件。
 
@@ -34,6 +36,9 @@ ChatDemoCs/
 ├── DeepSeekClient.cs
 ├── ChatMessage.cs
 ├── AppSettings.cs
+├── VmManualRagService.cs
+├── Manuals/
+│   └── README.md
 └── Properties/
     ├── AssemblyInfo.cs
     ├── Resources.resx / Resources.Designer.cs
@@ -102,7 +107,35 @@ ChatDemoCs\bin\Release\ChatDemoCs.exe
 
 配置会写入程序运行目录旁的 `ChatDemoCs.exe.config`。
 
-## 6. 聊天使用方式
+## 6. 本地 VM 手册 RAG
+
+RAG 模块由 `VmManualRagService` 实现，默认从程序运行目录查找：
+
+```text
+Manuals\HikRobotVMHelp.chm
+```
+
+如果该文件不存在，会读取 `App.config` 中的 `VmManualRag.ChmPath`。首次提问时，程序会用
+Windows 自带的 `hh.exe` 将 CHM 反编译到本地缓存目录，遍历 `*.htm`、`*.html` 和 `*.txt`
+文件，完成正文抽取、HTML 标签清洗、编码兼容和文本归一化。
+
+知识片段切分策略：
+
+- 窗口大小：`1200` 字符。
+- 重叠长度：`120` 字符。
+- 默认召回数量：`TopK = 4`。
+- 默认最大注入上下文：`6000` 字符。
+
+索引默认缓存到：
+
+```text
+%LOCALAPPDATA%\ChatDemoCs\VmManualRag
+```
+
+缓存通过 CHM 文件路径、大小和修改时间判断是否失效。实际测试中，VisionMaster 手册约可生成
+`520` 个知识片段。
+
+## 7. 聊天使用方式
 
 - **发送消息**：在输入框输入问题，点击 `Send`。
 - **快捷发送**：按 `Ctrl + Enter`。
@@ -113,7 +146,7 @@ ChatDemoCs\bin\Release\ChatDemoCs.exe
 
 聊天请求使用 `/v1/chat/completions` 接口，支持 Server-Sent Events 流式输出。
 
-## 7. 日志说明
+## 8. 日志说明
 
 程序会同时维护两类日志：
 
@@ -126,7 +159,7 @@ ChatDemoCs\bin\Release\ChatDemoCs.exe
 ChatDemoCs\bin\Release\Log\2026-05-15.log
 ```
 
-## 8. 常见问题
+## 9. 常见问题
 
 | 问题 | 处理方式 |
 |---|---|
@@ -136,10 +169,12 @@ ChatDemoCs\bin\Release\Log\2026-05-15.log
 | HTTP 401 | 检查 API Key 是否正确。 |
 | HTTP 404 | 检查 Base URL，DeepSeek 默认使用 `https://api.deepseek.com`。 |
 | 请求超时 | 增大 `Timeout`，或检查网络代理。 |
+| RAG 提示找不到 CHM 文件 | 将 `HikRobotVMHelp.chm` 放入 `Manuals` 目录，或在 `App.config` 中配置 `VmManualRag.ChmPath`。 |
 | 中文显示异常 | 确认系统字体支持中文，必要时调整 `ChatPanel.Designer.cs` 中的字体。 |
 
-## 9. 注意事项
+## 10. 注意事项
 
 - VisionMaster 方案运行依赖本机 SDK、授权和相关运行时环境。
 - 聊天功能需要网络访问 DeepSeek 或兼容 API 服务。
+- 仓库不包含 VisionMaster CHM 手册、编译产物、运行日志和 crash dump。
 - 如果程序从受保护目录运行，配置保存可能失败，建议复制到用户可写目录运行。

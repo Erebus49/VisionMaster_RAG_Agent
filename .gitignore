@@ -1,0 +1,34 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / .NET user files
+.vs/
+*.user
+*.suo
+*.cache
+*.pdb
+*.ilk
+*.ncb
+*.opendb
+*.sdf
+
+# Runtime logs, crash dumps, and local app data
+[Ll]og/
+[Ll]ogs/
+*.log
+*.dmp
+*.dat
+
+# Local executable configuration can contain API keys after running the app
+*.exe.config
+
+# Third-party/manual binary documents are not redistributed in this repository
+Manuals/*.chm
+Manuals/*.chw
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp

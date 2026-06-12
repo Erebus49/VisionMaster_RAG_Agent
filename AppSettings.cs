@@ -80,7 +80,7 @@ namespace ChatDemoCs
 
         public static string VmManualRagChmPath
         {
-            get { return GetString(KeyVmManualRagChmPath, @"c:\Users\Administrator\Downloads\HikRobotVMHelp (2).chm"); }
+            get { return GetString(KeyVmManualRagChmPath, string.Empty); }
             set { SetString(KeyVmManualRagChmPath, value ?? string.Empty); }
         }
 
